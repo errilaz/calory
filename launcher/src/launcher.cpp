@@ -7,7 +7,6 @@
 #include <vector>
 #include "include/portable-file-dialogs.h"
 #include "include/ArduinoJson.h"
-#include "include/INIReader.h"
 #include "include/picosha2.h"
 
 #ifdef _WIN32
@@ -242,7 +241,14 @@ int main() {
     fs::remove_all(data_dir / browser / "Default" / "Service Worker");
   }
   else {
-    command = "echo TODO production\n";
+    command = browser_path
+      + " --load-extension=" + bridge_path.c_str()
+      + " --user-data-dir=" + (data_dir / browser).c_str()
+      + " --app=\"file://" + (app_dir / "dist" / "index.html").c_str()
+      + " --allow-file-access-from-files"
+    ;
   }
+
+  cout << "launching browser" << endl;
   system(command.c_str());
 }
