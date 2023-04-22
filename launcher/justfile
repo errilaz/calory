@@ -1,0 +1,12 @@
+build:
+  @mkdir -p bin
+  @g++ -O -g src/launcher.cpp -o bin/calory
+  @strip bin/calory
+
+zbuild:
+  @mkdir -p bin
+  @zig c++ -Os src/launcher.cpp -o bin/calory
+  @strip bin/calory
+
+clean:
+  @rm -rf bin

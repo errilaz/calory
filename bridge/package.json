@@ -1,0 +1,17 @@
+{
+  "name": "@calory/bridge",
+  "private": true,
+  "version": "0.0.1",
+  "files": [
+    "manifest.json",
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf lib"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.231",
+    "typescript": "^4.9.3"
+  }
+}

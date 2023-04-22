@@ -1,0 +1,5 @@
+frontend/lib
+launcher/bin
+bridge/lib
+node_modules
+bridge/manifest.json
