@@ -1,7 +1,7 @@
 build:
   @mkdir -p bin
   @g++ -O -g src/launcher.cpp -o bin/calory
-  @strip bin/calory
+  # @strip bin/calory
 
 zbuild:
   @mkdir -p bin

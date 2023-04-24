@@ -2,5 +2,6 @@ frontend/lib
 launcher/bin
 bridge/lib
 bridge/manifest.json
+vite-plugin/lib
 
 node_modules
