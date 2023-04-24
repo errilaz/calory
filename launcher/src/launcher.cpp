@@ -199,7 +199,7 @@ void write_host_manifest(
 }
 
 int main() {
-  const auto development = (string)getenv("CALORY_ENV") == "development";
+  const auto development = getenv("CALORY_ENV") == "development";
   const auto app_dir = fs::current_path();
   const auto app_config = get_app_config(app_dir);
   const auto app_name = (string)app_config["name"];
@@ -232,7 +232,7 @@ int main() {
   if (development) {
     command = browser_path
       + " --load-extension=" + bridge_path.c_str()
-      + " --user-data-dir=" + (data_dir / browser).c_str()
+      + " --user-data-dir=\"" + (data_dir / browser).c_str() + "\""
       + " --app=\"http://localhost:3000\""
       + " --auto-open-devtools-for-tabs"
       + " --enable-logging=stderr"
@@ -243,8 +243,8 @@ int main() {
   else {
     command = browser_path
       + " --load-extension=" + bridge_path.c_str()
-      + " --user-data-dir=" + (data_dir / browser).c_str()
-      + " --app=\"file://" + (app_dir / "dist" / "index.html").c_str()
+      + " --user-data-dir=\"" + (data_dir / browser).c_str() + "\""
+      + " --app=\"file://" + (app_dir / "app" / "dist" / "index.html").c_str() + "\""
       + " --allow-file-access-from-files"
     ;
   }
